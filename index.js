@@ -50,3 +50,11 @@ function extractLinks(text) {
     /([http]?s?:?\/?\/?[www]?\.?[^\s]+\.(com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)[^\s]*)/gi;
   return text.match(urlRegex);
 }
+
+const csvDownload = () => {
+  const csvButtonEl = document.querySelector("csv-download");
+  csvButtonEl.addEventListener("click", () => {
+    let csvContent =
+      "data:text/csv;charset=utf-8," + rows.map((e) => e.join(",")).join("\n");
+  });
+};
