@@ -26,19 +26,27 @@ const printFileElements = (file) => {
   reader.readAsText(file);
 
   reader.addEventListener("load", () => {
-    // let data = reader.result.split("\n");
-    let fileLinks = extractLinks(reader.result);
+    // let data = reader.result.split("\n");h
+    const fileLinks = extractLinks(reader.result);
     fileLinks.forEach((message) => {
-      let newElement = document.createElement("li");
-      newElement.textContent = message;
-
-      let fullChat = document.getElementById("full-chat");
+      const newElement = document.createElement("li");
+      createLink(newElement, message);
+      const fullChat = document.getElementById("full-chat");
       fullChat.appendChild(newElement);
     });
   });
 };
 
+const createLink = (element, message) => {
+  const a = document.createElement("a");
+  const linkText = document.createTextNode(message);
+  a.appendChild(linkText);
+  a.href = message;
+  element.appendChild(a);
+};
+
 function extractLinks(text) {
-  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  const urlRegex =
+    /([http]?s?:?\/?\/?[www]?\.?[^\s]+\.(com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)[^\s]*)/gi;
   return text.match(urlRegex);
 }
