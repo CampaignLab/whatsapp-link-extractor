@@ -25,10 +25,25 @@ h1{
 	padding: 8px 16px 8px 16px;
 }
 
-li{
-	list-style: none;
-	padding: 3px;
+h3{
+	padding-left: 6px;
 }
+
+li{
+	padding: 4px;
+	list-style-position: inside;
+}
+
+.bullet {
+position: relative;
+left: 22px;
+padding-right: 24px;
+}
+
+ul{
+	list-style: none;
+}
+
 
 #extractor {
 	flex-direction: row;
@@ -39,7 +54,7 @@ li{
   width: 90vw;
   /* border: 3px solid rgb(165, 138, 255); */
   padding: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 
 .intro {
@@ -50,7 +65,6 @@ li{
 .bold {
 	font-weight: bold;
 }
-
 
 input{
 	margin: 10px;

@@ -29,7 +29,7 @@ const printFileElements = (file) => {
 	reader.addEventListener('load', () => {
 		const fileLinks = extractLinks(reader.result);
 		fileLinks.forEach((message) => {
-			const newElement = document.createElement('li');
+			const newElement = document.createElement('div');
 			createLink(newElement, message);
 			const fullChat = document.getElementById('full-chat');
 			fullChat.appendChild(newElement);
