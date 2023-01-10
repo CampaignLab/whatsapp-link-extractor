@@ -54,13 +54,15 @@ function extractLinks(text) {
 
 const csvDownload = (name, links) => {
   const csvButtonEl = document.getElementById("csv-download");
+
   csvButtonEl.addEventListener("click", () => {
-    let csvContent = "data:text/csv;charset=utf-8," + links.join("\n");
-    let encodedUri = encodeURI(csvContent);
+    let blob = new Blob([links.join("\n")], { type: "text/csv" });
+    var fileURL = URL.createObjectURL(blob);
     let link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
+    link.setAttribute("href", fileURL);
     link.setAttribute("download", name + "_links.csv");
     document.body.appendChild(link);
+    // console.log("link", link);
     link.click();
   });
 };
