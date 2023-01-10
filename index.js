@@ -32,7 +32,20 @@ dropArea.addEventListener("drop", (event) => {
   const file = event.dataTransfer.files[0];
   console.log(file);
 
-  // Do something with the file
+  const reader = new FileReader();
+
+  reader.readAsText(file);
+  reader.addEventListener("load", () => {
+    let data = reader.result.split("\n");
+    data.forEach((message, i) => {
+      let newElement = document.createElement("li");
+      // `message-${i}`
+      newElement.textContent = message;
+
+      let fullChat = document.getElementById("full-chat");
+      fullChat.appendChild(newElement);
+    });
+  });
 });
 
 // Prevent default drag and drop behavior
