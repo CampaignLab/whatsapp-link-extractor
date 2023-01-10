@@ -27,7 +27,6 @@ const printFileElements = (file) => {
   reader.readAsText(file);
 
   reader.addEventListener("load", () => {
-    // let data = reader.result.split("\n");h
     const fileLinks = extractLinks(reader.result);
     fileLinks.forEach((message) => {
       const newElement = document.createElement("li");
@@ -35,7 +34,7 @@ const printFileElements = (file) => {
       const fullChat = document.getElementById("full-chat");
       fullChat.appendChild(newElement);
     });
-    csvDownload(fileLinks);
+    csvDownload(file.name, fileLinks);
   });
 };
 
@@ -53,11 +52,15 @@ function extractLinks(text) {
   return text.match(urlRegex);
 }
 
-const csvDownload = (links) => {
+const csvDownload = (name, links) => {
   const csvButtonEl = document.getElementById("csv-download");
   csvButtonEl.addEventListener("click", () => {
     let csvContent = "data:text/csv;charset=utf-8," + links.join("\n");
-    var encodedUri = encodeURI(csvContent);
-    window.open(encodedUri);
+    let encodedUri = encodeURI(csvContent);
+    let link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", name + "_links.csv");
+    document.body.appendChild(link);
+    link.click();
   });
 };
