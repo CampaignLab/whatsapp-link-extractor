@@ -34,6 +34,7 @@ const printFileElements = (file) => {
       const fullChat = document.getElementById("full-chat");
       fullChat.appendChild(newElement);
     });
+    csvDownload(fileLinks);
   });
 };
 
@@ -51,10 +52,11 @@ function extractLinks(text) {
   return text.match(urlRegex);
 }
 
-const csvDownload = () => {
-  const csvButtonEl = document.querySelector("csv-download");
+const csvDownload = (links) => {
+  const csvButtonEl = document.getElementById("csv-download");
   csvButtonEl.addEventListener("click", () => {
-    let csvContent =
-      "data:text/csv;charset=utf-8," + rows.map((e) => e.join(",")).join("\n");
+    let csvContent = "data:text/csv;charset=utf-8," + links.join("\n");
+    var encodedUri = encodeURI(csvContent);
+    window.open(encodedUri);
   });
 };
