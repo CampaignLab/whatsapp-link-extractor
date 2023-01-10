@@ -1,4 +1,4 @@
-# CL-whatsapp-tools
+# Campaign-Lab-whatsapp-tools
 
 A small whatsapp tool built at a Campaign Lab Winter Hack night
 
