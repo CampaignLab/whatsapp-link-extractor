@@ -13,6 +13,7 @@ dropArea.addEventListener("drop", (event) => {
   const file = event.dataTransfer.files[0];
   printFileElements(file);
 });
+
 // Prevent default drag and drop behavior
 ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
   dropArea.addEventListener(eventName, (event) => {
