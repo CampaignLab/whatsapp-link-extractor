@@ -69,15 +69,10 @@ ul{
 .welcome-text {
 	text-align: left;
   width: 90vw;
-  /* border: 3px solid rgb(165, 138, 255); */
   padding: 10px;
 	margin-bottom: 8px;
 }
 
-.intro {
-	/* font-weight: bold; */
-	/* font-style: italic; */
-}
 
 .bold {
 	font-weight: bold;
@@ -90,7 +85,6 @@ ul{
 }
 
 button {
-	/* display: inline-block; */
 	right: 0;
 	border: none;
 	width: 200px;
