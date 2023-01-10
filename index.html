@@ -11,17 +11,20 @@
   <body>
     <h1>Whatsapp Link Extractor</h1>
     <div class="welcome-text">
-      <p class="intro">
+      <p class="intro card">
         Organising on WhatsApp? Sharing links to important information on a
         chat? Want a way to quickly download all the links that are useful to
         your community?
+     <br><br>
+        <span class="bold">Our WhatsApp link extractor is a tool </span> 
+        that makes it easy to export and download all the useful links from
+        your WhatsApp chat history. Get started, or read how it works in 3 easy steps!
       </p>
-      <p>
-        <span class="bold">Our WhatsApp link extractor is a tool </span
-        >that makes it easy to export and download all the useful links from
-        your WhatsApp chat history. Here's how it works in 3 easy steps!</span
-      </p>
-      <ol>
+      <input type="file" />
+
+    <div id="full-chat"></div>
+    <button id="csv-download">download as CSV</button>
+      <ol class="card">
         <li>
           <span class="bold"
             >First, you need to export your WhatsApp chat history.</span
@@ -49,18 +52,15 @@
           <span class="bold">Finally, click the button to download </span
           >the list of links to your computer! Check the links, as they might not be perfect.
         </li>
+        <p>
+          You can then
+            use the list of links to do whatever you need
+          with them! It's that easy!
+        </p>
       </ol>
-      <p>
-        You can then
-          use the list of links to do whatever you need
-        with them! It's that easy!
-      </p>
     </div>
 
-    <input type="file" />
-
-    <div id="full-chat"></div>
-    <button id="csv-download">download as CSV</button>
+    
     <script src="./index.js"></script>
   </body>
 </html>
