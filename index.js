@@ -57,7 +57,6 @@ const csvDownload = (name, links) => {
   csvButtonEl.id = "csv-download";
   csvButtonEl.innerHTML = "Download as CSV";
   document.getElementById("extractor").append(csvButtonEl);
-  // const csvButtonEl = document.getElementById('csv-download');
 
   csvButtonEl.addEventListener("click", () => {
     let blob = new Blob([links.join("\n")], { type: "text/csv" });
@@ -66,7 +65,6 @@ const csvDownload = (name, links) => {
     link.setAttribute("href", fileURL);
     link.setAttribute("download", name + "_links.csv");
     document.body.appendChild(link);
-    // console.log("link", link);
     link.click();
   });
 };
